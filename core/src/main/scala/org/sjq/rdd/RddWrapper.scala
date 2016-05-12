@@ -47,6 +47,7 @@ trait RddWrapper {
               case Types.MapType => Map(
                 obj.getJSONObject(f.name).entrySet().toArray[java.util.Map.Entry[String,Any]](Array())
                   .map(m=> m.getKey -> m.getValue):_*)
+              case Types.ListType => obj.getJSONArray(f.name).toArray.toList
               case _ => obj.get(f.name)
             }
           }).toList
