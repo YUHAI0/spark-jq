@@ -25,11 +25,18 @@ Usage
 
     - parse json RDD into JSONObject RDD
 
-2. rdd.fileds("field1", "filed2")
+2. rddJson.fields("field1", "filed2")
 
     - return an RDD\[List(*field1Type*, *field2Type*)\]
     
-    
+3. rddJson.key\[T\]("field1") or rdd.field(*fieldFoo*)
+
+    - return RDD\[T\]
+
+4. rddJson.jsonObject("objKey")
+
+    - return an JSONObject RDD
+
 Features in future
 ==================
 

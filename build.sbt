@@ -1,6 +1,6 @@
 lazy val commonSettings = Seq(
   organization := "org.sjq",
-  version := "0.0.2",
+  version := "0.0.3",
   scalaVersion := "2.10.5",
   scalaBinaryVersion := "2.10",
   libraryDependencies ++= Seq(

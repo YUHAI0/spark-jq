@@ -3,4 +3,4 @@ package org.sjq.fields
 /**
  * @author hai
  */
-case class ListField(override val name: String) extends BaseField(name, Types.ListType)
+case class ListField[T](override val name: String) extends BaseField[List[T]](name, Types.ListType)
