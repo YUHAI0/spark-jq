@@ -5,5 +5,5 @@ package org.sjq.fields
  */
 object Types extends Enumeration {
   type Type = Value
-  val IntType, LongType, StringType, DoubleType, BooleanType, MapType, ListType = Value
+  val IntType, LongType, StringType, DoubleType, BooleanType, MapType, ListType, ObjectType = Value
 }

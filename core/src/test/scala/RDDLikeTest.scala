@@ -1,6 +1,5 @@
 import com.alibaba.fastjson.{JSONArray, JSONObject}
 import org.apache.spark.rdd.RDD
-import org.apache.spark.{SparkContext, SparkConf}
 import org.scalatest.FlatSpec
 import org.sjq.fields._
 import org.sjq.rdd.RDDLike._
@@ -10,10 +9,10 @@ import scala.language.postfixOps
 /**
  * @author hai
  */
-class RDDLikeTest extends FlatSpec {
+object RDDLikeTest extends FlatSpec {
 
-  val conf = new SparkConf().setAppName("RDDLikeTest").setMaster("local[2]")
-  val sc = new SparkContext(conf)
+  val sc = Common.sc
+
   val data = List(
     """ { "keyA": 1, "keyB": "stringA", "keyC": true, "keyD": 20000, "keyE": 10.10101,
       |"keyF": {"m1": 1, "m2": 2, "m3": 3, "m4": true, "m5":{"mm1":1}}, "keyG": ["a",1,2,"b"] } """.stripMargin,
@@ -71,11 +70,41 @@ class RDDLikeTest extends FlatSpec {
     assert(sc.parallelize(List(data(1))).parseJson.key[JSONArray]("keyG").first().toArray.mkString == "c34d")
   }
 
-  it can "get an JSONObject and use next field method" in {
+  it can "get a JSONObject and use next field method" in {
     val rdd = rddJson.jsonObject("keyF")
     assert(rdd.key[Int]("m1").sum() == 12)
     assert(rdd.key[Boolean]("m4").filter(_ == true).count() == 1)
     assert(rdd.jsonObject("m5").key[Int]("mm1").sum() == 3)
+  }
+
+  it can "map RDD[Any] into RDD[T] and get element of RDD[List[Any]] with apply(n: Int) method" in {
+    val rddFields = rddJson.fields(
+      IntField("keyA"), StringField("keyB"), BooleanField("keyC"), LongField("keyD"), DoubleField("keyE"), MapField[String, Any]("keyF"))
+
+    assert(rddFields(0).Int.sum() == 3)
+    assert(rddFields(1).String.sortBy(s=>s).collect().foldLeft("")((a,b)=>a+b) == "stringAstringB")
+    assert(rddFields(2).Boolean.collect()(0) && !rddFields(2).Boolean.collect()(1))
+    assert(rddFields(3).Long.fold(0L)((a,b)=>a+b) == (20000L+40000L))
+    assert(rddFields(4).Double.fold(0.0)((a,b)=>a+b) == (10.10101+101.010101))
+    assert(rddFields(5).Map[String,Any].map(_.keys.toList.sorted.fold("")((a,b)=> a + b)).distinct().first() == "m1m2m3m4m5" )
+  }
+
+  it can "support get JSONObject field by ObjectField" in {
+    val rdd = rddJson.field[JSONObject](ObjectField("keyF"))
+    assert(rdd.key[Int]("m1").sum() == 12)
+    assert(rdd.key[Boolean]("m4").filter(_ == true).count() == 1)
+    assert(rdd.jsonObject("m5").key[Int]("mm1").sum() == 3)
+  }
+
+  it can "get an compose field wrapper by object, ex. 'a.b.c.d' "  in {
+    assert(rddJson.field(IntField("keyF.m1")).sum() == 12)
+    assert(rddJson.field(BooleanField("keyF.m4")).filter(_ == true).count() == 1)
+    assert(rddJson.field(IntField("keyF.m5.mm1")).sum() == 3)
+
+    val rdd = rddJson.fields(IntField("keyF.m1"), BooleanField("keyF.m4"), IntField("keyF.m5.mm1"))
+    assert(rdd(0).Int.sum() == 12)
+    assert(rdd(1).Boolean.filter(_ == true).count() == 1)
+    assert(rdd(2).Int.sum() == 3)
   }
 
 }
