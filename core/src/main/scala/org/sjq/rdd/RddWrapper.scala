@@ -12,7 +12,6 @@ import scala.reflect.ClassTag
 trait RddWrapper {
 
   implicit class JQImp(val rdd: RDD[String]) {
-
     def jq(regex: String): RDD[String] = {
       rdd
     }
@@ -122,6 +121,63 @@ trait RddWrapper {
         }
       })
     }
+
+    def apply[T1: ClassTag, T2: ClassTag](n1: Int, n2: Int): RDD[(T1, T2)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag](n1: Int, n2: Int, n3: Int): RDD[(T1, T2, T3)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag](n1: Int, n2: Int, n3: Int, n4: Int): RDD[(T1, T2, T3, T4)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag](n1: Int, n2: Int, n3: Int, n4: Int, n5: Int): RDD[(T1, T2, T3, T4, T5)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag](n1: Int = 0, n2: Int = 1, n3: Int = 2, n4: Int = 3, n5: Int = 4, n6: Int = 5): RDD[(T1, T2, T3, T4, T5, T6)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    // More apply ... or cut this feature
 
   }
 
