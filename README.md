@@ -1,6 +1,6 @@
 SARK-JQ
 ========
-A jq like tools in spark
+A Spark toolkit, not exactly like jq but inspired by it 
 
 
 Supported RDD Format
@@ -77,3 +77,7 @@ Features in future
 3. support other input data, sql, kafka, flume, ...
 4. support other RDD reduce function utils
 
+LICENSE
+=======
+
+MIT
