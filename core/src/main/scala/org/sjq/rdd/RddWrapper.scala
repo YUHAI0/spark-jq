@@ -166,7 +166,7 @@ trait RddWrapper {
       })
     }
 
-    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag](n1: Int = 0, n2: Int = 1, n3: Int = 2, n4: Int = 3, n5: Int = 4, n6: Int = 5): RDD[(T1, T2, T3, T4, T5, T6)] = {
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag](n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int): RDD[(T1, T2, T3, T4, T5, T6)] = {
       rdd.flatMap(list => {
         try {
           Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6]))
@@ -177,8 +177,173 @@ trait RddWrapper {
       })
     }
 
-    // More apply ... or cut this feature
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag](n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int): RDD[(T1, T2, T3, T4, T5, T6, T7)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
 
+    def apply[T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag](n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int): RDD[(T1, T2, T3, T4, T5, T6, T7, T8)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8]))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag, T11: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int, n11: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10], list(n11).asInstanceOf[T11]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag, T11: ClassTag, T12: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int, n11: Int, n12: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10], list(n11).asInstanceOf[T11], list(n12).asInstanceOf[T12]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag, T11: ClassTag, T12: ClassTag, T13: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int, n11: Int, n12: Int, n13: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10], list(n11).asInstanceOf[T11], list(n12).asInstanceOf[T12], list(n13).asInstanceOf[T13]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag, T11: ClassTag, T12: ClassTag, T13: ClassTag, T14: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int, n11: Int, n12: Int, n13: Int, n14: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10], list(n11).asInstanceOf[T11], list(n12).asInstanceOf[T12], list(n13).asInstanceOf[T13], list(n14).asInstanceOf[T14]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag, T11: ClassTag, T12: ClassTag, T13: ClassTag, T14: ClassTag, T15: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int, n11: Int, n12: Int, n13: Int, n14: Int, n15: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10], list(n11).asInstanceOf[T11], list(n12).asInstanceOf[T12], list(n13).asInstanceOf[T13], list(n14).asInstanceOf[T14], list(n15).asInstanceOf[T15]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    def apply[
+    T1: ClassTag, T2: ClassTag, T3: ClassTag, T4: ClassTag, T5: ClassTag, T6: ClassTag, T7: ClassTag, T8: ClassTag,
+    T9: ClassTag, T10: ClassTag, T11: ClassTag, T12: ClassTag, T13: ClassTag, T14: ClassTag, T15: ClassTag, T16: ClassTag]
+    (n1: Int, n2: Int, n3: Int, n4: Int, n5: Int, n6: Int, n7: Int, n8: Int, n9: Int, n10: Int, n11: Int, n12: Int, n13: Int, n14: Int, n15: Int, n16: Int):
+    RDD[(T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16)] = {
+      rdd.flatMap(list => {
+        try {
+          Some((
+            list(n1).asInstanceOf[T1], list(n2).asInstanceOf[T2], list(n3).asInstanceOf[T3], list(n4).asInstanceOf[T4], list(n5).asInstanceOf[T5], list(n6).asInstanceOf[T6], list(n7).asInstanceOf[T7], list(n8).asInstanceOf[T8],
+            list(n9).asInstanceOf[T9], list(n10).asInstanceOf[T10], list(n11).asInstanceOf[T11], list(n12).asInstanceOf[T12], list(n13).asInstanceOf[T13], list(n14).asInstanceOf[T14], list(n15).asInstanceOf[T15], list(n16).asInstanceOf[T16]
+            ))
+        } catch {
+          case e: Throwable =>
+            None
+        }
+      })
+    }
+
+    // More apply ... or cut this feature
   }
 
   implicit class JsonToObject(val rdd: RDD[String]) {
