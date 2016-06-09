@@ -2,6 +2,8 @@ SARK-JQ
 ========
 A Spark toolkit, not exactly like jq but inspired by it 
 
+[![Build Status](https://travis-ci.org/yuhai1023/spark-jq.svg?branch=master)](https://travis-ci.org/yuhai1023/spark-jq)
+
 
 Supported RDD Format
 ====================
