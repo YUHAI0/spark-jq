@@ -9,7 +9,7 @@ import scala.language.postfixOps
 /**
  * @author hai
  */
-object RDDLikeTest extends FlatSpec {
+class RDDLikeTest extends FlatSpec {
 
   val sc = Common.sc
 
