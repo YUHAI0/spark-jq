@@ -1,4 +1,4 @@
-SARK-JQ
+SPARK-JQ
 ========
 A Spark toolkit, not exactly like jq but inspired by it 
 
@@ -8,7 +8,7 @@ A Spark toolkit, not exactly like jq but inspired by it
 Supported RDD Format
 ====================
 
-1. RDD[String] within json data type
+1. RDD[String] within json or jsonArray data type
 
 
 Supported JSON field

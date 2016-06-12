@@ -2,7 +2,7 @@ package org.sjq.rdd
 
 import com.alibaba.fastjson.JSONObject
 import org.apache.spark.rdd.RDD
-import org.sjq.fields.{BaseField, Types}
+import org.sjq.fields.{RegexField, BaseField, Types}
 
 import scala.reflect.ClassTag
 
@@ -365,6 +365,7 @@ trait RddWrapper {
             .map(m => m.getKey -> m.getValue): _*)
         case Types.ListType => obj.getJSONArray(field.name).toArray.toList
         case Types.ObjectType => obj.getJSONObject(field.name)
+        case Types.RegexType => field.asInstanceOf[RegexField].regex(obj.getString(field.name))
         case _ => obj.get(field.name)
       }
     }
