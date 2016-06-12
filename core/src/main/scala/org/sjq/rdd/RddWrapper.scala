@@ -1,6 +1,6 @@
 package org.sjq.rdd
 
-import com.alibaba.fastjson.{JSON, JSONObject}
+import com.alibaba.fastjson.JSONObject
 import org.apache.spark.rdd.RDD
 import org.sjq.fields.{BaseField, Types}
 
@@ -346,20 +346,6 @@ trait RddWrapper {
     // More apply ... or cut this feature
   }
 
-  implicit class JsonToObject(val rdd: RDD[String]) {
-
-    def parseJson: RDD[JSONObject] = {
-      rdd.flatMap(line => {
-        try {
-          Some(JSON.parseObject(line))
-        } catch {
-          case e: Throwable =>
-            None
-        }
-      })
-    }
-
-  }
 
   implicit class JsonObjectToFields(val rdd: RDD[JSONObject]) extends Serializable {
 

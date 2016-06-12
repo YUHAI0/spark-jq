@@ -51,8 +51,8 @@ class RDDLikeTest extends FlatSpec {
     assert(!sc.parallelize(List(data(1))).parseJson.field[Boolean](BooleanField("keyC")).first())
     assert(rddJson.field[Int](IntField("keyD")).sum() == 60000)
     assert(rddJson.field[Double](DoubleField("keyE")).sum() == (10.10101+101.010101))
-    assert(sc.parallelize(List(data.head)).parseJson.field[Map[String, Int]](MapField("keyF")).first().get("m1") == Some(1))
-    assert(sc.parallelize(List(data(1))).parseJson.field[Map[String, Int]](MapField("keyF")).first().get("m2") == Some(12))
+    assert(sc.parallelize(List(data.head)).parseJson.field[Map[String, Int]](MapField("keyF")).first().get("m1").forall(_ == 1))
+    assert(sc.parallelize(List(data(1))).parseJson.field[Map[String, Int]](MapField("keyF")).first().get("m2").forall(_ == 12))
     assert(sc.parallelize(List(data.head)).parseJson.field[List[Any]](ListField("keyG")).first().mkString == "a12b")
     assert(sc.parallelize(List(data(1))).parseJson.field[List[Any]](ListField("keyG")).first().mkString == "c34d")
   }

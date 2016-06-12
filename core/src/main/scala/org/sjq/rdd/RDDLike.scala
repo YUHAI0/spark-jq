@@ -3,4 +3,4 @@ package org.sjq.rdd
 /**
  * @author hai
  */
-object RDDLike extends RddWrapper with Serializable { }
+object RDDLike extends AnyRef with Serializable with RDDJsonParser with RddWrapper { }
