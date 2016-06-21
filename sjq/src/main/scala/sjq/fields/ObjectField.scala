@@ -1,4 +1,4 @@
-package org.sjq.fields
+package sjq.fields
 
 import com.alibaba.fastjson.JSONObject
 

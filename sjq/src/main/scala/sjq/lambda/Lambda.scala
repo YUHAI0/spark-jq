@@ -1,4 +1,4 @@
-package org.sjq.lambda
+package sjq.lambda
 
 import scala.language.{implicitConversions, postfixOps, reflectiveCalls}
 

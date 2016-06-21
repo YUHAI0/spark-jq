@@ -1,8 +1,8 @@
 import com.alibaba.fastjson.{JSONArray, JSONObject}
 import org.apache.spark.rdd.RDD
 import org.scalatest.FlatSpec
-import org.sjq.fields._
-import org.sjq.rdd.RDDLike._
+import sjq.fields._
+import sjq.rdd.RDDLike._
 
 import scala.language.postfixOps
 

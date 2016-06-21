@@ -1,7 +1,6 @@
 import org.scalatest.FlatSpec
-import org.sjq.fields.RegexField
-
-import org.sjq.rdd.RDDLike._
+import sjq.fields.RegexField
+import sjq.rdd.RDDLike._
 
 /**
  * @author hai

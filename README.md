@@ -24,12 +24,27 @@ Supported JSON field
 Usage
 =====
 
+Sbt
+---
+
+    libraryDependencies += "com.magicsoho" %% "spark-jq" % "0.1.0"
+    
+Maven
+-----
+    
+    <dependency>
+        <groupId>com.magicsoho</groupId>
+        <artifactId>spark-jq_${your_scala_binary_version}</artifactId>
+        <version>0.1.0</version>
+    </dependency>
+
+
 RDDLike
 -------
 
 0. first of all
 
-    import org.sjq.rdd.RDDLike._
+    import sjq.RDDLike._
 
 1. rdd.parseJson
 
@@ -60,7 +75,7 @@ Lambda
 
 0. first of all
     
-    import org.sjq.lambda.Lambda._
+    import sjq.Lambda._
     
 1. addInt | addDouble
 

@@ -1,8 +1,8 @@
-package org.sjq.rdd
+package sjq.rdd
 
 import com.alibaba.fastjson.JSONObject
 import org.apache.spark.rdd.RDD
-import org.sjq.fields.{RegexField, BaseField, Types}
+import sjq.fields.{RegexField, Types, BaseField}
 
 import scala.reflect.ClassTag
 

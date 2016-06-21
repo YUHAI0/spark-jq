@@ -1,4 +1,4 @@
-package org.sjq.rdd
+package sjq.rdd
 
 /**
  * @author hai

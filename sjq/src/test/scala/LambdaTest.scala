@@ -1,6 +1,5 @@
 import org.scalatest.FlatSpec
-
-import org.sjq.lambda.Lambda._
+import sjq.lambda.Lambda._
 
 /**
  * @author hai

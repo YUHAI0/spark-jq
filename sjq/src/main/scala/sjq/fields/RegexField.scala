@@ -1,4 +1,4 @@
-package org.sjq.fields
+package sjq.fields
 
 import java.util.regex.Pattern
 

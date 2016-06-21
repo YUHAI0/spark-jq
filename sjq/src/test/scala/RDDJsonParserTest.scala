@@ -1,8 +1,8 @@
 import com.alibaba.fastjson.JSONObject
 import org.apache.spark.rdd.RDD
 import org.scalatest.FlatSpec
-import org.sjq.fields.StringField
-import org.sjq.rdd.RDDLike._
+import sjq.fields.StringField
+import sjq.rdd.RDDLike._
 
 /**
  * @author hai

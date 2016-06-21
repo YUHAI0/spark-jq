@@ -1,7 +1,8 @@
-package org.sjq.rdd
+package sjq.rdd
 
 import com.alibaba.fastjson.{JSON, JSONObject}
 import org.apache.spark.rdd.RDD
+
 
 /**
  * @author hai

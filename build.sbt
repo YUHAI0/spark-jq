@@ -1,5 +1,5 @@
-val commonSettings = Seq(
-  organization := "org.sjq",
+lazy val commonSettings = Seq(
+  organization := "com.magicsoho",
   version := "0.1.0",
   scalaVersion := "2.11.5",
   libraryDependencies ++= Seq(
@@ -11,10 +11,10 @@ val commonSettings = Seq(
   isSnapshot := true
 )
 
-lazy val core = (project in file("core")).
+lazy val sjq = project.
   settings(commonSettings: _*).
   settings(
-    name := "spark-jq-core"
+    name := "spark-jq"
   )
 
 
