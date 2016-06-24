@@ -1,9 +1,8 @@
-crossScalaVersions := Seq("2.10.5", "2.11.5")
-
 lazy val sjq = project.settings(
+  crossScalaVersions := Seq("2.10.5", "2.11.5"),
   organization := "com.magicsoho",
   name := "spark-jq",
-  isSnapshot := true,
+  isSnapshot := false,
   publishMavenStyle := true,
   libraryDependencies ++= Seq(
     "org.apache.spark" %% "spark-core" % "1.6.1",
@@ -25,12 +24,25 @@ lazy val sjq = project.settings(
       Some("releases"  at nexus + "/service/local/staging/deploy/maven2")
   },
   pomExtra :=
+    <url>http://magicsoho.com/projects/spark-jq</url>
     <licenses>
       <license>
         <name>MIT</name>
-        <url>http://github.com/yuhai1023/spark-jq/LICENSE</url>
+        <url>http://github.com/yuhai1023/spark-jq/master/LICENSE</url>
         <distribution>repo</distribution>
       </license>
     </licenses>
+    <scm>
+      <url>git@github.com:yuhai1023/spark-jq.git</url>
+      <connection>scm:git:git@github.com:yuhai1023/spark-jq.git</connection>
+    </scm>
+    <developers>
+      <developer>
+        <id>Hai</id>
+        <name>Hai Yu</name>
+        <url>http://about.me/yuhai</url>
+      </developer>
+    </developers>
 )
+
 
