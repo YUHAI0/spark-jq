@@ -28,7 +28,7 @@ lazy val sjq = project.settings(
     <licenses>
       <license>
         <name>MIT</name>
-        <url>http://github.com/yuhai1023/spark-jq/master/LICENSE</url>
+        <url>http://raw.githubusercontent.com/yuhai1023/spark-jq/master/LICENSE</url>
         <distribution>repo</distribution>
       </license>
     </licenses>
